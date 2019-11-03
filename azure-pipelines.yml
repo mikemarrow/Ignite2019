@@ -79,13 +79,6 @@ steps:
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\deploy'
 
-- task: CopyFiles@2
-  displayName: Copy Utility
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.Utilities\bin\$(BuildConfiguration)'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)\Utility'
-
 - task: VSTest@2
   displayName: Run Unit Tests
   inputs:
