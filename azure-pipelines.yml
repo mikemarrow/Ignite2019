@@ -1,26 +1,4 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@mikemarrow 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-0
-095dylanignite/Ignite2019
-forked from dylan-smith/Ignite2019
- Code Pull requests 0 Projects 0 Wiki Security Insights
-Ignite2019/azure-pipelines.yml
-@dylanignite dylanignite Update azure-pipelines.yml for Azure Pipelines
-51d6935 7 minutes ago
-@dylan-smith@dylanignite
-77 lines (65 sloc)  2.01 KB
-  
 # ASP.NET
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
@@ -78,6 +56,14 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)\deploy'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\deploy'
+
+- task: CopyFiles@2
+  displayName: Copy Utility
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\PokerLeagueManager.Utilities\bin\$(BuildConfiguration)'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Utility'
+
 
 - task: VSTest@2
   displayName: Run Unit Tests
